@@ -5,9 +5,9 @@ import 'package:battery_plus/battery_plus.dart';
 import 'package:flutter_network_connectivity/flutter_network_connectivity.dart';
 import 'package:country_codes/country_codes.dart';
 // ignore: depend_on_referenced_packages
-import 'package:url_launcher/url_launcher.dart';
-import 'package:timezone/timezone.dart' as tz;
-import 'package:timezone/data/latest.dart' as tzdata;
+// import 'package:url_launcher/url_launcher.dart';
+// import 'package:timezone/timezone.dart' as tz;
+// import 'package:timezone/data/latest.dart' as tzdata;
 
 Future<bool> swimIsUsingVpn() async {
   var swimConnectivityResult = await (Connectivity().checkConnectivity());
@@ -71,18 +71,18 @@ Future<bool> swimIsInternetConnected() async {
   return swimIsNetworkConnectedOnCall;
 }
 
-Future<void> swimBrowse(String ur) async {
-  final url = Uri.parse(ur).normalizePath();
-  if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
-    throw Exception('Could not launch $url');
-  }
-}
+// Future<void> swimBrowse(String ur) async {
+//   final url = Uri.parse(ur).normalizePath();
+//   if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+//     throw Exception('Could not launch $url');
+//   }
+// }
 
-Future<String> swimGetTime() async {
-  tzdata.initializeTimeZones();
+// Future<String> swimGetTime() async {
+//   tzdata.initializeTimeZones();
 
-  tz.TZDateTime moscowTime = tz.TZDateTime.now(tz.getLocation('Europe/Moscow'));
-  return DateTime(moscowTime.year, moscowTime.month, moscowTime.day,
-          moscowTime.hour, moscowTime.minute)
-      .toString();
-}
+//   tz.TZDateTime moscowTime = tz.TZDateTime.now(tz.getLocation('Europe/Moscow'));
+//   return DateTime(moscowTime.year, moscowTime.month, moscowTime.day,
+//           moscowTime.hour, moscowTime.minute)
+//       .toString();
+// }
